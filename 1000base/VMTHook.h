@@ -46,20 +46,6 @@ public:
 		*((int*)ent) = (int)orig;
 	}
 
-	void Revert()
-	{
-		*((int*)ent) = (int)orig;
-		Protect((void*)ent, orig_protect);
-	}
-
-	void Protect(void* reg, int protectType)
-	{
-		MEMORY_BASIC_INFORMATION memInf;
-
-		VirtualQuery((LPCVOID)reg, &memInf, sizeof(memInf));
-		VirtualProtect(memInf.BaseAddress, memInf.RegionSize, protectType, &memInf.Protect);
-	}
-
 	int Unprotect(void* reg)
 	{
 		MEMORY_BASIC_INFORMATION memInf;

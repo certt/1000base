@@ -8,6 +8,53 @@ void Utils::InitHooks()
 	oReset = (ResetFn)((new CVMTHookManager((PDWORD*)dwReset))->dwHookMethod((DWORD)&Hooks::Reset, 0));
 }
 
+bool Utils::WorldToScreen(const Vector &origin, Vector &screen)
+{
+	const auto screenTransform = [&origin, &screen]() -> bool
+	{
+		static std::uintptr_t pViewMatrix;
+		if (!pViewMatrix)
+		{
+			pViewMatrix = static_cast<std::uintptr_t>(g_Utils->FindPatternIDA("client.dll", "0F 10 05 ? ? ? ? 8D 85 ? ? ? ? B9"));
+			pViewMatrix += 3;
+			pViewMatrix = *reinterpret_cast<std::uintptr_t*>(pViewMatrix);
+			pViewMatrix += 176;
+		}
+
+		const VMatrix& w2sMatrix = *reinterpret_cast<VMatrix*>(pViewMatrix);
+		screen.x = w2sMatrix.m[0][0] * origin.x + w2sMatrix.m[0][1] * origin.y + w2sMatrix.m[0][2] * origin.z + w2sMatrix.m[0][3];
+		screen.y = w2sMatrix.m[1][0] * origin.x + w2sMatrix.m[1][1] * origin.y + w2sMatrix.m[1][2] * origin.z + w2sMatrix.m[1][3];
+		screen.z = 0.0f;
+
+		float w = w2sMatrix.m[3][0] * origin.x + w2sMatrix.m[3][1] * origin.y + w2sMatrix.m[3][2] * origin.z + w2sMatrix.m[3][3];
+
+		if (w < 0.001f)
+		{
+			screen.x *= 100000;
+			screen.y *= 100000;
+			return true;
+		}
+
+		float invw = 1.f / w;
+		screen.x *= invw;
+		screen.y *= invw;
+
+		return false;
+	};
+
+	if (!screenTransform())
+	{
+		int iScreenWidth, iScreenHeight;
+		I::Engine->GetScreenSize(iScreenWidth, iScreenHeight);
+
+		screen.x = (iScreenWidth * 0.5f) + (screen.x * iScreenWidth) * 0.5f;
+		screen.y = (iScreenHeight * 0.5f) - (screen.y * iScreenHeight) * 0.5f;
+
+		return true;
+	}
+	return false;
+}
+
 DWORD Utils::FindPatternIDA(std::string moduleName, std::string pattern)
 {
 	const char* pat = pattern.c_str();

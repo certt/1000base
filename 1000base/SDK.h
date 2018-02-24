@@ -34,7 +34,11 @@
 #include "imgui.h"
 #include "imgui_dx9.h"
 #include "dt_recv.h"
+#include "VMatrix.h"
+#include "Color.h"
+#include "ImRender.h"
 
+#include "NetVarManager.h"
 #include "Misc.h"
 #include "Utils.h"
 #include "Interfaces.h"

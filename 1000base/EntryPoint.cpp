@@ -8,6 +8,7 @@ void Initialize()
 		Sleep(200);
 
 	g_Interfaces->InitInterfaces(); // initialisation of interfaces
+	g_pNetvars = new CNetVars(); // initialisation of NetVar manager
 	g_Utils->InitHooks(); // initialisation of hooks
 }
 

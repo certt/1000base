@@ -105,6 +105,15 @@
     <ClInclude Include="CHandle.h">
       <Filter>SDK\Interfaces\Valve</Filter>
     </ClInclude>
+    <ClInclude Include="NetVarManager.h">
+      <Filter>SDK\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ImRender.h">
+      <Filter>SDK\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="ABytes.h">
+      <Filter>SDK\Math &amp; Stuff</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imgui.cpp">
@@ -130,6 +139,12 @@
     </ClCompile>
     <ClCompile Include="Interfaces.cpp">
       <Filter>SDK\Interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="NetVarManager.cpp">
+      <Filter>SDK\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="ImRendering.cpp">
+      <Filter>SDK\ImGui</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

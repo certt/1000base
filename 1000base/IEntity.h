@@ -5,9 +5,35 @@ class C_BaseCombatWeapon;
 class C_BaseEntity
 {
 private:
-
+	template<class T>
+	T GetValue(const int offset)
+	{
+		return *reinterpret_cast<T*>(reinterpret_cast<std::uintptr_t>(this) + offset);
+	}
 public:
+	bool GetLifeState()
+	{
+		static int m_lifeState = g_pNetvars->GetOffset("DT_BasePlayer", "m_lifeState");
+		return GetValue<bool>(m_lifeState);
+	}
 
+	int GetHealth()
+	{
+		static int m_iHealth = g_pNetvars->GetOffset("DT_BasePlayer", "m_iHealth");
+		return GetValue<int>(m_iHealth);
+	}
+
+	Vector GetOrigin()
+	{
+		static int m_vecOrigin = g_pNetvars->GetOffset("DT_BaseEntity", "m_vecOrigin");
+		return GetValue<Vector>(m_vecOrigin);
+	}
+
+	EntityFlags GetFlags()
+	{
+		static int m_fFlags = g_pNetvars->GetOffset("DT_BasePlayer", "m_fFlags");
+		return GetValue<EntityFlags>(m_fFlags);
+	}
 };
 
 
