@@ -1,5 +1,7 @@
 #include "Main.h"
 
+// I`ll update this base when i have free time.
+
 void Initialize()
 {
 	while (!(g_Globals->CSGOWindow = FindWindowA("Valve001", NULL))) // Get CSGO window handle into global vars
