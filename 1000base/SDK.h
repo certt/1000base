@@ -1,6 +1,6 @@
 #pragma once
 
-// Important includes, dont touch it (Алик, отведи ребят.)
+// Important includes, dont touch it
 #include <Windows.h>
 #include <Psapi.h>
 #include <iostream>
