@@ -25,6 +25,7 @@
 #include <intrin.h>
 #include <atomic>
 #include <mutex>
+#include "Vector.h"
 
 #include <d3d9.h>
 #include <d3dx9.h>
@@ -32,6 +33,8 @@
 #pragma comment(lib, "d3dx9.lib")
 #include "imgui.h"
 #include "imgui_dx9.h"
+#include "dt_recv.h"
 
 #include "Misc.h"
 #include "Utils.h"
+#include "Interfaces.h"

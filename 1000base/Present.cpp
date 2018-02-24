@@ -13,7 +13,8 @@ long __stdcall Hooks::Present(IDirect3DDevice9* device, const RECT *pSourceRect,
 
 	ImGui::Begin("1000base", &g_Globals->RenderInit, ImVec2(400, 300), 1.0f);
 	{
-
+		if (I::Engine->IsInGame() && I::Engine->IsConnected())
+			ImGui::Text("Local player is spawned!");
 	}
 	ImGui::End();
 

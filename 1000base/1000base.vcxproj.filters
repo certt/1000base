@@ -25,6 +25,12 @@
     <Filter Include="SDK\Utils">
       <UniqueIdentifier>{bc9c1c77-245a-469d-8e1d-a36b6a53257d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SDK\Interfaces\Valve">
+      <UniqueIdentifier>{15ee99c0-05f8-4de8-ae63-43bbc7c60b95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SDK\Math &amp; Stuff">
+      <UniqueIdentifier>{e66f6568-ff3c-4dbb-afb4-a1e5d6fc34ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imconfig.h">
@@ -66,6 +72,39 @@
     <ClInclude Include="Hooks.h">
       <Filter>Hooks</Filter>
     </ClInclude>
+    <ClInclude Include="IBaseClientDLL.h">
+      <Filter>SDK\Interfaces\Valve</Filter>
+    </ClInclude>
+    <ClInclude Include="Interfaces.h">
+      <Filter>SDK\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="dt_common.h">
+      <Filter>SDK\Interfaces\Valve</Filter>
+    </ClInclude>
+    <ClInclude Include="dt_recv.h">
+      <Filter>SDK\Interfaces\Valve</Filter>
+    </ClInclude>
+    <ClInclude Include="IVEngineClient.h">
+      <Filter>SDK\Interfaces\Valve</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>SDK\Math &amp; Stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="VMatrix.h">
+      <Filter>SDK\Math &amp; Stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>SDK\Math &amp; Stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="IEntity.h">
+      <Filter>SDK\Interfaces\Valve</Filter>
+    </ClInclude>
+    <ClInclude Include="IClientNetworkable.h">
+      <Filter>SDK\Interfaces\Valve</Filter>
+    </ClInclude>
+    <ClInclude Include="CHandle.h">
+      <Filter>SDK\Interfaces\Valve</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imgui.cpp">
@@ -88,6 +127,9 @@
     </ClCompile>
     <ClCompile Include="Present.cpp">
       <Filter>Hooks\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Interfaces.cpp">
+      <Filter>SDK\Interfaces</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
