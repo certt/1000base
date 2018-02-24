@@ -6,3 +6,6 @@ This base not finished yet, i`ll update in future.
 * Basic ImGui menu;
 * OBS-bypass (ESP & menu draw in steamoverlay);
 * VMTHook;
+
+ Credits:
+ UC community, ocornut & all my russian mates (Beisik, Yra Menshikov)
