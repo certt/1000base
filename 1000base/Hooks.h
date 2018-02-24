@@ -1,5 +1,7 @@
 #pragma once
 
+// Thank A5 for this hooks style, i really like it.
+
 using ResetFn = long(__stdcall*)(IDirect3DDevice9* device, D3DPRESENT_PARAMETERS* pp);
 extern ResetFn oReset;
 
