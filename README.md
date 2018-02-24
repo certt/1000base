@@ -2,7 +2,7 @@
 
 This base not finished yet, i`ll update in future.
 
-** Features **
+**Features**
 * Basic ImGui menu;
 * OBS-bypass (ESP & menu draw in steamoverlay);
 * VMTHook;
