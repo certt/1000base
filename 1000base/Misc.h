@@ -7,7 +7,8 @@ class Globals
 public:
 	HWND CSGOWindow;
 	bool RenderInit;
-
+	ImFont* Font1;
+	ImFont* Font2;
 private:
 }; extern Globals* g_Globals;
 

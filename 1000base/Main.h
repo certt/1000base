@@ -9,3 +9,5 @@
 // Cheat func
 #include "VMTHook.h"
 #include "Hooks.h"
+#include "Visuals.h"
+#include "CMenu.h"

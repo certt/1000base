@@ -31,6 +31,12 @@
     <Filter Include="SDK\Math &amp; Stuff">
       <UniqueIdentifier>{e66f6568-ff3c-4dbb-afb4-a1e5d6fc34ab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Features\Hacks">
+      <UniqueIdentifier>{a1ebad4b-442a-4583-8ff1-cd29c9a8ee6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Features\Menu">
+      <UniqueIdentifier>{3162387d-f2ae-4113-9145-0a36272b6d22}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imconfig.h">
@@ -114,6 +120,12 @@
     <ClInclude Include="ABytes.h">
       <Filter>SDK\Math &amp; Stuff</Filter>
     </ClInclude>
+    <ClInclude Include="Visuals.h">
+      <Filter>Features\Hacks</Filter>
+    </ClInclude>
+    <ClInclude Include="CMenu.h">
+      <Filter>Features\Menu</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imgui.cpp">
@@ -145,6 +157,12 @@
     </ClCompile>
     <ClCompile Include="ImRendering.cpp">
       <Filter>SDK\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="Visuals.cpp">
+      <Filter>Features\Hacks</Filter>
+    </ClCompile>
+    <ClCompile Include="CMenu.cpp">
+      <Filter>Features\Menu</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
