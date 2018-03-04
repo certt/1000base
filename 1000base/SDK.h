@@ -38,7 +38,9 @@
 #include "Color.h"
 #include "ImRender.h"
 
+#include "Vars.h"
 #include "NetVarManager.h"
 #include "Misc.h"
 #include "Utils.h"
 #include "Interfaces.h"
+#include "Globals.h"

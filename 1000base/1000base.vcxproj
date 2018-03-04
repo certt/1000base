@@ -128,6 +128,7 @@
     <ClInclude Include="Color.h" />
     <ClInclude Include="dt_common.h" />
     <ClInclude Include="dt_recv.h" />
+    <ClInclude Include="Globals.h" />
     <ClInclude Include="Visuals.h" />
     <ClInclude Include="Hooks.h" />
     <ClInclude Include="IBaseClientDLL.h" />
@@ -154,6 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CMenu.cpp" />
+    <ClCompile Include="CreateMove.cpp" />
     <ClCompile Include="EntryPoint.cpp" />
     <ClCompile Include="Visuals.cpp" />
     <ClCompile Include="imgui.cpp" />
@@ -165,6 +167,7 @@
     <ClCompile Include="NetVarManager.cpp" />
     <ClCompile Include="Present.cpp" />
     <ClCompile Include="Utils.cpp" />
+    <ClCompile Include="WndProc.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

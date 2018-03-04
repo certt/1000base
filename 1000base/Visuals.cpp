@@ -8,7 +8,8 @@ void Visuals::ESP()
 			C_BaseEntity* Entity = I::EntityList->GetClientEntity(i);
 			if (!Entity
 				|| !Entity->GetLifeState() == 0
-				|| !Entity->GetHealth() > 0)
+				|| !Entity->GetHealth() > 0
+				|| Entity == g_Globals->LocalPlayer)
 				continue;
 
 			Vector vecBottom, vecScreenBottom, vecScreenOrigin;

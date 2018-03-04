@@ -10,6 +10,8 @@ namespace I {
 	extern IBaseClientDLL* Client;
 	extern IVEngineClient* Engine;
 	extern IClientEntityList* EntityList;
+	extern IGlobalVars* Globals;
+	extern IClientMode* ClientMode;
 }
 
 class Interfaces {

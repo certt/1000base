@@ -126,6 +126,9 @@
     <ClInclude Include="CMenu.h">
       <Filter>Features\Menu</Filter>
     </ClInclude>
+    <ClInclude Include="Globals.h">
+      <Filter>SDK\Math &amp; Stuff</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imgui.cpp">
@@ -163,6 +166,12 @@
     </ClCompile>
     <ClCompile Include="CMenu.cpp">
       <Filter>Features\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="WndProc.cpp">
+      <Filter>Hooks\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateMove.cpp">
+      <Filter>Hooks\Game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
