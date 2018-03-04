@@ -28,6 +28,7 @@ void Visuals::ESP()
 
 			int screenWidth, screenHeight;
 			I::Engine->GetScreenSize(screenWidth, screenHeight);
+			g_ImRender->DrawString(g_Globals->Font2, screenWidth / 2, screenHeight / 2, Color::White(), "super ultra mega gay");
 			g_ImRender->DrawString(g_Globals->Font1, screenWidth / 2, screenHeight / 2, Color::White(), "really gay");
 			g_ImRender->DrawString(g_Globals->Font2, screenWidth / 2, screenHeight / 2, Color::White(), "gay");
 			g_ImRender->DrawEspBox(leftUpCorn, rightDownCorn, Color::Red(), 3);
