@@ -11,10 +11,12 @@ private:
 		return *reinterpret_cast<T*>(reinterpret_cast<std::uintptr_t>(this) + offset);
 	}
 public:
-	bool GetLifeState()
+	int GetLifeState()
 	{
+		//m_lifestate is an int (0 to 4)
+		//https://github.com/ValveSoftware/source-sdk-2013/blob/master/mp/src/public/const.h#L273
 		static int m_lifeState = g_pNetvars->GetOffset("DT_BasePlayer", "m_lifeState");
-		return GetValue<bool>(m_lifeState);
+		return GetValue<int>(m_lifeState);
 	}
 
 	int GetHealth()
@@ -33,6 +35,10 @@ public:
 	{
 		static int m_fFlags = g_pNetvars->GetOffset("DT_BasePlayer", "m_fFlags");
 		return GetValue<EntityFlags>(m_fFlags);
+	}
+	bool IsAlive()
+	{
+	return (this->GetLifeState() == 0) && (this->GetHealth() > 0);
 	}
 };
 
