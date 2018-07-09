@@ -2,13 +2,24 @@
 
 PresentFn oPresent;
 ResetFn oReset;
+LockCursorFn oLockCursor;
+
+void __stdcall Hooks::LockCursor()
+{
+	if (g_Vars->Menu.Opened) {
+		I::Surface->UnLockCursor();
+		return;
+	}
+
+	oLockCursor(I::Surface);
+}
 
 long __stdcall Hooks::Present(IDirect3DDevice9* device, const RECT *pSourceRect, const RECT *pDestRect, HWND hDestWindowOverride, const RGNDATA *pDirtyRegion) {
 	if (!g_Globals->RenderInit)
 		g_ImRender->SetupPresent(device);
 
 	g_ImRender->PreRender(device);
-	g_Visuals->ESP();	
+	g_Visuals->ESP();
 	g_ImRender->PostRender(device);
 	g_Menu->Menu();
 	g_ImRender->EndPresent(device);

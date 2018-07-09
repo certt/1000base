@@ -7,7 +7,7 @@ void Initialize() {
 		Sleep(200);
 
 	Hooks::oldWindowProc = (WNDPROC)SetWindowLongPtr(g_Globals->CSGOWindow, GWL_WNDPROC, (LONG_PTR)Hooks::WndProc);
-
+	g_Globals->isPanorama = GetModuleHandleA("client_panorama.dll");
 	g_Interfaces->InitInterfaces(); // initialisation of interfaces
 	g_pNetvars = new CNetVars(); // initialisation of NetVar manager
 	g_Utils->InitHooks(); // initialisation of hooks

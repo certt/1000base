@@ -5,6 +5,7 @@
 #include "IBaseClientDLL.h"
 #include "IVEngineClient.h"
 #include "IEntity.h"
+#include "ISurface.h"
 
 namespace I {
 	extern IBaseClientDLL* Client;
@@ -12,6 +13,7 @@ namespace I {
 	extern IClientEntityList* EntityList;
 	extern IGlobalVars* Globals;
 	extern IClientMode* ClientMode;
+	extern ISurface* Surface;
 }
 
 class Interfaces {
@@ -22,7 +24,7 @@ public:
 		original_fn create_interface = (original_fn)GetProcAddress(GetModuleHandleA(module_name), "CreateInterface");
 		return reinterpret_cast< t >(create_interface(interface_name, nullptr));
 	}
-	
+
 	void InitInterfaces();
 
 private:

@@ -4,15 +4,16 @@ void Utils::InitHooks()
 {
 	std::unique_ptr<CVMTHookManager> ClientMode;
 	ClientMode = std::make_unique<CVMTHookManager>(I::ClientMode);
-
-	DWORD dwPresent = Utils::FindPatternIDA("gameoverlayrenderer.dll", "FF 15 ? ? ? ? 8B F8 85 DB 74 1F") + 0x2;
+	std::unique_ptr<CVMTHookManager> Surface;
+	Surface = std::make_unique<CVMTHookManager>(I::Surface);
+	DWORD dwPresent = Utils::FindPatternIDA("gameoverlayrenderer.dll", "FF 15 ? ? ? ? 8B F8 85 DB") + 0x2;
 	DWORD dwReset = Utils::FindPatternIDA("gameoverlayrenderer.dll", "FF 15 ? ? ? ? 8B F8 85 FF 78 18") + 0x2;
 
+	oLockCursor = (LockCursorFn)Surface->dwHookMethod((DWORD)Hooks::LockCursor, 67);
 	oCreateMove = (CreateMoveFn)ClientMode->dwHookMethod((DWORD)Hooks::CreateMove, 24);
 	oPresent = (PresentFn)((new CVMTHookManager((PDWORD*)dwPresent))->dwHookMethod((DWORD)&Hooks::Present, 0));
 	oReset = (ResetFn)((new CVMTHookManager((PDWORD*)dwReset))->dwHookMethod((DWORD)&Hooks::Reset, 0));
 }
-
 bool Utils::WorldToScreen(const Vector &origin, Vector &screen)
 {
 	const auto screenTransform = [&origin, &screen]() -> bool
@@ -20,7 +21,7 @@ bool Utils::WorldToScreen(const Vector &origin, Vector &screen)
 		static std::uintptr_t pViewMatrix;
 		if (!pViewMatrix)
 		{
-			pViewMatrix = static_cast<std::uintptr_t>(g_Utils->FindPatternIDA("client.dll", "0F 10 05 ? ? ? ? 8D 85 ? ? ? ? B9"));
+			pViewMatrix = static_cast<std::uintptr_t>(g_Utils->FindPatternIDA(g_Globals->isPanorama ? "client_panorama.dll" : "client.dll", "0F 10 05 ? ? ? ? 8D 85 ? ? ? ? B9"));
 			pViewMatrix += 3;
 			pViewMatrix = *reinterpret_cast<std::uintptr_t*>(pViewMatrix);
 			pViewMatrix += 176;

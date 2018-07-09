@@ -4,6 +4,7 @@ class Globals
 {
 public:
 	HWND CSGOWindow;
+	bool isPanorama;
 	bool RenderInit;
 	ImFont* Font1;
 	ImFont* Font2;
